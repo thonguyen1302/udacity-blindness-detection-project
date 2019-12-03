@@ -60,24 +60,13 @@ I used OpenCV to preprocess the images. OpenCV loads the images and resize the i
 ## Benchmark Model
 Reference - https://github.com/BloodAxe/Kaggle-2019-Blindness-Detection
 
-Solutions                 Accuration                    Data
-Resnet18                0.9077 ± 0.0045               3662 images
-                  (Cross validation 4 folds)
-
-SEResnext50             0.9213 ± 0.0033               3662 images
-                  (Cross validation 4 folds)
-
-SEResnext101            0.9176 ± 0.0080               3662 images
-                  (Cross validation 4 folds)
-
-reg_resnext50_rms       0.9234 ± 0.0035               3662 images               
-                  (Cross validation 4 folds)
-                  
+![Image description](https://scontent-iad3-1.xx.fbcdn.net/v/t1.15752-9/78589126_1023518648027924_1212152299074355200_n.png?_nc_cat=104&_nc_ohc=HYnGuLWpnKkAQnevz9MAB2sXxWVlANH-TE90wS_tEz0z4nRlqPpCukLpQ&_nc_ht=scontent-iad3-1.xx&oh=4de8be746eed9fd25d68c786689a451d&oe=5E7C06EB)
                   
                   
 ## Evaluation Metrics
 
 Precision
+
 Let’s start with precision, which answers the following question: what proportion of predicted Positives is
 truly Positive?
 Precision = (TP)/(TP+FP)
@@ -85,6 +74,7 @@ In the asteroid prediction problem, we never predicted a true positive.
 And thus precision=0
 
 Recall
+
 Another very useful measure is recall, which answers a different question: what proportion of actual
 Positives is correctly classified?
 Recall = (TP)/(TP+FN)
@@ -92,19 +82,21 @@ In the asteroid prediction problem, we never predicted a true positive.
 And thus recall is also equal to 0.
 
 F1 Score
+
 The F1 Score is the 2*((precision*recall)/(precision+recall)). It is also called the F Score or the F Measure.
 Put another way, the F1 score conveys the balance between the precision and the recall.
 
 ## Project Design
-Data Visualization: Tried multiple predictors, each predictor I separate the dataset based on k-fold CrossValidation with 80% for training and 20% for testing.
+Data Visualization: Tried multiple predictors, each predictor I separate the dataset based on k-fold Cross-Validation with 80% for training and 20% for testing.
 
-Data Preprocessing: Resize the images to 224x224 for inputs. Change the color from BGR to RGB. Scaling and Normalization operations on data and splitting the data in training, validation and testing sets.
+Data Preprocessing: Resize the images to 224x224 for inputs. Change the color from BGR to RGB. Scaling and Normalization operations on data and splitting the data in training, validation and testing sets. 
 
 Feature Engineering: Tried multiple predictors and take the best one.
 
-Model Selection: Experiment with various algorithms to find out the best algorithm for this use case. I will
-try with many models Resnet18, SEResnext50, SEResnext101 and reg_resnext50_rms, after that I will pick the best one with the highest accurate.
+Model Selection: Experiment with various algorithms to find out the best algorithm for this use case. I will try with many models resnet18, seresnext50, resnet34 and resnet50, after that I will pick the best one with the highest accurate. 
 
 Model Tuning: Fine tune the selected algorithm to increase performance without overfitting.
 
 Testing: Test the model on testing dataset.
+
+
